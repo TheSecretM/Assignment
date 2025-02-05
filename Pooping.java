@@ -1,6 +1,6 @@
 
 /**
- * Simply a sound of someone releasing a turd
+ * Simply a sound of someone pooping...
  *
  * @author Majed Alali and Vinushan Nagentherarajah
  * @version 3.0
