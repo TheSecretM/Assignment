@@ -24,12 +24,7 @@ public class Luis extends Prey
         super(randomAge, location);
         Random rand = new Random();
         // Male and not Male(Female) genders applied randomly.
-        if(rand.nextBoolean()) {
-            male = true;
-        }
-        else {
-            male = false;
-        }
+        male = rand.nextBoolean();
     }
 
     /**

@@ -22,12 +22,7 @@ public class Leonardo extends Prey
     {
         super(randomAge, location);
         Random rand = new Random();
-        if(rand.nextBoolean()) {
-            male = true;
-        }
-        else {
-            male = false;
-        }
+        male = rand.nextBoolean();
     }
     
     /**
@@ -164,7 +159,7 @@ public class Leonardo extends Prey
      * Checks if the other Leonardo object has a different gender 
      * compared to this Leonardo object.
      * @return True if gender is same. False if both have different gender.
-     * @param secondLuis The second Leonardo who's gender is to be checked 
+     * @param secondLeonardo The second Leonardo who's gender is to be checked
      * alongside the current Leonardo object.
      * @param leonardo This Leonardo object.
      */
