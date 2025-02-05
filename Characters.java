@@ -130,9 +130,7 @@ public abstract class Characters
                 return true;
             }
         }
-        else {
             return true;
-        }
     }
     
     /**
