@@ -12,9 +12,9 @@ import java.util.Random;
 public class Luis extends Prey
 {
     // The probability of Luis breeding.
-    private static double BREEDING_PROBABILITY = 0.94;
+    private static final double BREEDING_PROBABILITY = 0.94;
     // Determines if a Luis object is male or not a male(female).
-    private boolean male;
+    private final boolean male;
 
     /**
      * Constructor for objects of class Luis

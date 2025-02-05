@@ -14,7 +14,7 @@ public class Leonardo extends Prey
     // The probability of Luis breeding.
     private static double BREEDING_PROBABILITY = 0.94;
     // Determines if a Leonardo object is male or not a male(female).
-    private boolean male;
+    private final boolean male;
     /**
      * Constructor for objects of class Agi
      */
