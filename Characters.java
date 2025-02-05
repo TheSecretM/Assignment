@@ -4,7 +4,7 @@ import java.util.List;
  * Characters is an interface of all the actors in the field. 
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 3.0
+ * @version 3.1
  */
 public abstract class Characters
 {
