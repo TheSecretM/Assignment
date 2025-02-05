@@ -43,13 +43,12 @@ public class Sounds {
      */
     public void playSoundEffects(String fileName) {
         File file = getSoundEffects(fileName);
-        if(file != null) {
+        try{
             Media sound = new Media(file.toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             mediaPlayer.play();
-        }
-        else {
-            throw new RuntimeException("Sound effects not found with name " + fileName);
+        } catch (Exception e) {
+            System.out.println(e + "Make sure you enter a valid sound file in the corresponding sound class");
         }
     }
 }
