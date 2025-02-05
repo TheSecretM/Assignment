@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Crunch
+comment0.text=\r\n\ Simply\ a\ sound\ of\ crunching\ on\ something...\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 2.2\r\n
+comment1.params=
+comment1.target=Crunch()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Crunch\r\n
+comment2.params=
+comment2.target=void\ playSound()
+comment2.text=\r\n\ Plays\ a\ sound\ that\ resembles\ crunching\ something\ every\ \r\n\ set\ number\ of\ times\ it's\ called.\ Counter\ gets\ incremented\ \r\n\ every\ time\ this\ method\ is\ called.\r\n
+numComments=3

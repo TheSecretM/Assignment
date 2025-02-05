@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Weather
+comment0.text=\r\n\ Weather\ class\ indicates\ the\ field\ weather\ conditions.\ Which\ \r\n\ affects\ the\ growth\ rate\ of\ Plants\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 2.0\r\n
+comment1.params=
+comment1.target=Weather()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Weather\r\n
+comment2.params=
+comment2.target=void\ change()
+comment2.text=\r\n\ Changes\ the\ weather\ condition\ by\ a\ random\ choice,\ with\ \r\n\ the\ first\ weather\ (sunny)\ having\ a\ probability\ of\ 70%,\ while\ \r\n\ the\ other\ 3\ weather\ conditions\ each\ have\ a\ probability\ of\ \r\n\ 10%\ of\ occuring.\r\n\ @return\ The\ new\ weather\ condition.\r\n
+comment3.params=
+comment3.target=java.lang.String\ getWeather()
+comment3.text=\r\n\ Returns\ the\ current\ weather\ condition\ as\ a\ string.\r\n\ @return\ The\ weather\ condition.\r\n
+comment4.params=
+comment4.target=boolean\ isSnowy()
+comment4.text=\r\n\ Checks\ if\ the\ weather\ is\ snowy\ and\ returns\ true\ if\ so,\ \r\n\ otherwise\ returns\ false.\r\n\ @return\ True\ if\ snowy\ weather,\ False\ if\ not\ snowy.\r\n
+comment5.params=
+comment5.target=boolean\ isRainy()
+comment5.text=\r\n\ Checks\ if\ the\ weather\ is\ snowy\ and\ returns\ true\ if\ so,\ \r\n\ otherwise\ returns\ false.\r\n\ @return\ True\ if\ snowy\ weather,\ False\ if\ not\ snowy.\r\n
+comment6.params=
+comment6.target=boolean\ isFoggy()
+comment6.text=\r\n\ Checks\ if\ the\ weather\ is\ snowy\ and\ returns\ true\ if\ so,\ \r\n\ otherwise\ returns\ false.\r\n\ @return\ True\ if\ snowy\ weather,\ False\ if\ not\ snowy.\r\n
+numComments=7
