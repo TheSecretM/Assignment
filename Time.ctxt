@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Time
+comment0.text=\r\n\ Time\ is\ a\ class\ that\ counts\ the\ number\ of\ days\ that\ has\ passed\ and\ \r\n\ stores\ the\ phase\ of\ the\ current\ day.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Time()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Time\r\n
+comment2.params=
+comment2.target=void\ incrementDay()
+comment2.text=\r\n\ Changes\ the\ time\ of\ the\ day\ to\ Night\ if\ it\ was\ day,\ or\ \r\n\ if\ it\ was\ Night,\ it\ changes\ the\ time\ of\ the\ day\ to\ Day\ \r\n\ and\ increments\ the\ number\ of\ days\ that\ passed.\r\n
+comment3.params=
+comment3.target=int\ getDayNumber()
+comment3.text=\r\n\ @return\ The\ number\ of\ days\ that\ passed.\r\n
+comment4.params=
+comment4.target=java.lang.String\ getDayTime()
+comment4.text=\r\n\ @return\ The\ time\ of\ day\ as\ a\ string.\r\n
+comment5.params=
+comment5.target=java.lang.String\ getDetails()
+comment5.text=\r\n\ Arranges\ the\ day\ number\ and\ the\ day\ time\ in\ a\ single\ line\ for\ \r\n\ display\ and\ returns\ it\ as\ a\ string.\r\n\ @return\ A\ string\ which\ displays\ the\ day\ number\ and\ the\ day\ time\ \r\n\ in\ a\ presentable\ manner.\r\n
+comment6.params=
+comment6.target=void\ reset()
+comment6.text=\r\n\ Resets\ the\ day\ number\ back\ to\ 1\ and\ the\ day\ time\ back\ to\ Day.\r\n
+comment7.params=
+comment7.target=boolean\ isDay()
+comment7.text=\r\n\ @return\ True\ if\ the\ time\ is\ Day,\ or\ False\ if\ the\ \r\n\ time\ is\ anything\ else.\r\n
+numComments=8
