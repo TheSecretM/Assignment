@@ -7,7 +7,7 @@ import javafx.embed.swing.JFXPanel;
  * Simply a sound of crunching on something...
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 2.2
+ * @version 2.3
  */
 public class Crunch
 {
@@ -34,7 +34,7 @@ public class Crunch
      */
     public void playSound() {
         COUNT++;
-        if(COUNT % 5 == 0) {
+        if(COUNT % 10 == 0) {
             Media crunchSound = new Media(new File(CRUNCH_SOUND_FILE).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(crunchSound);
             mediaPlayer.play();
