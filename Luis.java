@@ -71,7 +71,7 @@ public class Luis extends Prey
                         }
                     }
                 }
-                // Move towards a source of food if found.
+                // Move towards a source of food if found
                 Location nextLocation = findFood(currentField);
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
