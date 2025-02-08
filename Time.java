@@ -35,20 +35,6 @@ public class Time
     }
 
     /**
-     * @return The number of days that passed.
-     */
-    public int getDayNumber() {
-        return dayNumber;
-    }
-
-    /**
-     * @return The time of day as a string.
-     */
-    public String getDayTime() {
-        return time.toString();
-    }
-
-    /**
      * Arranges the day number and the day time in a single line for 
      * display and returns it as a string.
      * @return A string which displays the day number and the day time 

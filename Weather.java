@@ -5,7 +5,7 @@ import java.util.Random;
  * affects the growth rate of Plants
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 2.0
+ * @version 2.1
  */
 public class Weather
 {
@@ -25,8 +25,7 @@ public class Weather
      * Changes the weather condition by a random choice, with 
      * the first weather (sunny) having a probability of 70%, while 
      * the other 3 weather conditions each have a probability of 
-     * 10% of occuring.
-     * @return The new weather condition.
+     * 10% of occurring.
      */
     public void change() {
         int num = rand.nextInt(0, 10);

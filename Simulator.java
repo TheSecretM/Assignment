@@ -5,7 +5,7 @@ import java.util.*;
  * predators and preys and plants.
  * 
  * @author David J. Barnes and Michael Kölling and Majed Alali and Vinushan Nagentherarajah
- * @version 10.0
+ * @version 10.1
  */
 public class Simulator
 {
@@ -22,8 +22,6 @@ public class Simulator
     private static final double PLANT_CREATION_PROBABILITY = 0.20;
     // The maximum number of Josh-type Predator allowed in the field.
     private static final int MAX_JOSH_NUMBER = 5;
-    // Counts the current number of Josh-type Predator created.
-    private static int CURRENT_JOSH = 0;
 
     // The current state of the field.
     private Field field;
@@ -32,9 +30,9 @@ public class Simulator
     // A graphical view of the simulation.
     private final SimulatorView view;
     // The weather conditions of the field.
-    private Weather weather;
+    private final Weather weather;
     // Day number and phase of day of the current simulation.
-    private Time time;
+    private final Time time;
 
     /**
      * Construct a simulation field with default size.
@@ -163,7 +161,8 @@ public class Simulator
     {
         Random rand = Randomizer.getRandom();
         field.clear();
-        CURRENT_JOSH = 0;
+        // Counts the current number of Josh-type Predator created.
+        int CURRENT_JOSH = 0;
         for(int row = 0; row < field.getDepth(); row++) {
             for(int col = 0; col < field.getWidth(); col++) {
                 if(rand.nextDouble() <= PREDATOR_CREATION_PROBABILITY) {

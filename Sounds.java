@@ -47,7 +47,7 @@ public class Sounds {
             Media sound = new Media(file.toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             mediaPlayer.play();
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             System.out.println(e + "Make sure you enter a valid sound file from sound-effects folder in the corresponding sound class");
         }
     }

@@ -7,7 +7,7 @@ import java.util.Iterator;
  * never reproduce. They continue moving through the night.
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 3.3
+ * @version 3.4
  */
 public class Josh extends Predator
 {
@@ -62,7 +62,7 @@ public class Josh extends Predator
                 // Move towards a source of food if found.
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
-                    nextLocation = freeLocations.remove(0);
+                    nextLocation = freeLocations.removeFirst();
                 }
                 // Searches for poop to eat as a last resort, yikes!
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
@@ -146,7 +146,7 @@ public class Josh extends Predator
         int births = breed();
         if(births > 0) {
             for (int b = 0; b < births && ! freeLocations.isEmpty(); b++) {
-                Location loc = freeLocations.remove(0);
+                Location loc = freeLocations.removeFirst();
                 Predator young = new Michael(false, loc);
                 nextFieldState.placeCharacter(young, loc);
             }
@@ -154,7 +154,7 @@ public class Josh extends Predator
     }
     
     /**
-     * Checks for any closeby Michael Predators in the next field 
+     * Checks for any close by Michael Predators in the next field
      * state and returns the first one found, or null if none are 
      * found.
      * @return Michael if a Michael object was found in one of the 

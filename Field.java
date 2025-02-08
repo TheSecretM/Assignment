@@ -5,7 +5,7 @@ import java.util.*;
  * Each position is able to store a single character/object.
  * 
  * @author David J. Barnes and Michael Kölling and Majed Alali and Vinushan Nagentherarajah
- * @version 9.0
+ * @version 9.1
  */
 public class Field
 {
@@ -51,7 +51,7 @@ public class Field
                 characters.remove(other);
             }
         }
-        if(change == true) {
+        if(change) {
             field.put(location, character);
             characters.add(character);
         }
@@ -90,34 +90,12 @@ public class Field
         }
         return free;
     }
-    
-    /**
-     * Get a shuffled list of the free adjacent locations. Checks 
-     * the phase of the day to determine the free adjacent locations.
-     * @param location Get locations adjacent to this.
-     * @return A list of free adjacent locations.
-     */
-    public List<Location> getFreeAdjacentLocations(Location location, Time time)
-    {
-        List<Location> free = new LinkedList<>();
-        List<Location> adjacent = getAdjacentLocations(location);
-        for(Location next : adjacent) {
-            Characters character = field.get(next);
-            if(character == null) {
-                free.add(next);
-            }
-            else if(!character.isAlive()) {
-                free.add(next);
-            }
-        }
-        return free;
-    }
 
     /**
      * Return a shuffled list of locations adjacent to the given one.
      * The list will not include the location itself.
      * All locations will lie within the grid.
-     * @param location The location from which to generate adjacencies.
+     * @param location The location from which to get List of adjacent ones.
      * @return A list of locations adjacent to that given.
      */
     public List<Location> getAdjacentLocations(Location location)
@@ -156,16 +134,16 @@ public class Field
         for(Characters chara : field.values()) {
             if(chara != null) {
                 if(chara.isAlive()) {
-                    if(chara instanceof Plant plant) {
+                    if(chara instanceof Plant) {
                         numPlants++;
                     }
-                    else if(chara instanceof Prey prey) {
+                    else if(chara instanceof Prey) {
                         numPreys++;
                     }
-                    else if(chara instanceof Predator predator) {
+                    else if(chara instanceof Predator) {
                         numPredators++;
                     }
-                    else if(chara instanceof Poop poop) {
+                    else if(chara instanceof Poop) {
                         numPoops++;
                     }
                 }
@@ -183,7 +161,7 @@ public class Field
     public void clear()
     {
         Iterator<Characters> characters = field.values().iterator();
-        characters.forEachRemaining((chara) -> chara.setDead());
+        characters.forEachRemaining(Characters::setDead);
         field.clear();
     }
 

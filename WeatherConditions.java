@@ -3,13 +3,13 @@
  * Indicates the Weather types allowed in the game.
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 1.0
+ * @version 1.1
  */
 public enum WeatherConditions
 {
-    SUN("sunny"), FOG("Foggy"), SNOW("Snowwy"), RAIN("Rainy");
+    SUN("Sunny"), FOG("Foggy"), SNOW("Snowy"), RAIN("Rainy");
     // Name of the weather condition in string.
-    private String weatherCondition;
+    private final String weatherCondition;
     
     WeatherConditions(String conditionName) {
         weatherCondition = conditionName;
@@ -17,7 +17,8 @@ public enum WeatherConditions
     
     @Override
     /**
-     * Changes the weather condition to it's string counterpart.
+     * Changes the weather condition to its string counterpart.
+     * @return The weather condition's string name.
      */
     public String toString() {
         return weatherCondition;
