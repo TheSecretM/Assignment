@@ -46,7 +46,7 @@ public class Plant extends Characters
         int births = breed();
         if(births > 0) {
             for (int b = 0; b < births && ! freeLocations.isEmpty(); b++) {
-                Location loc = freeLocations.remove(0);
+                Location loc = freeLocations.removeFirst();
                 Plant young = new Plant(loc);
                 nextFieldState.placeCharacter(young, loc);
             }
@@ -113,7 +113,7 @@ public class Plant extends Characters
     }
     
     /**
-     * Has less chance of giving birth at night. Otherwise 
+     * Has less chance of giving birth at night. Otherwise,
      * it's actions are the same.
      */
     public void nightAct(Field currentField, Field nextFieldState) {
@@ -141,12 +141,5 @@ public class Plant extends Characters
                 ", alive=" + isAlive() +
                 ", location=" + getLocation() +
                 '}';
-    }
-    
-    /**
-     * @return The age of the plant as an int.
-     */
-    private int getAge() {
-        return age;
     }
 }

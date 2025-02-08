@@ -95,7 +95,7 @@ public class Luis extends Prey
     }
 
     /**
-     * Check whether or not this prey is to give birth at this step.
+     * Check whether this prey is to give birth at this step.
      * New births will be made into free adjacent locations.
      * @param freeLocations The locations that are free in the current field.
      */

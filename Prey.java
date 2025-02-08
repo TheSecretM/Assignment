@@ -8,7 +8,7 @@ import java.util.Iterator;
  * movements. And might spread the disease to nearby Animals
  * 
  * @author David J. Barnes and Michael Kölling and Majed Alali and Vinushan Nagentherarajah
- * @version 9.1
+ * @version 9.2
  */
 public abstract class Prey extends Characters
 {
@@ -36,12 +36,10 @@ public abstract class Prey extends Characters
     protected int age;
     // The prey's food level, which is increased by eating plants.
     private int foodLevel;
-    // Movement attempts counter (sick preys can't move well enough)
-    private int move;
 
     /**
      * Create a new prey. A prey may be created with age
-     * zero (a new born) or with a random age.
+     * zero (a newborn) or with a random age.
      * 
      * @param randomAge If true, the prey will have a random age.
      * @param location The location within the field.
@@ -74,35 +72,32 @@ public abstract class Prey extends Characters
             nextFieldState.getFreeAdjacentLocations(getLocation());
         occupied.removeAll(freeLocations);
         diseaseTransfer(occupied, currentField);
-        if(!canMove()) {
-            if(isAlive()) {
+        if(isAlive()) {
+            if(!canMove()) {
                 nextFieldState.placeCharacter(this, getLocation());
             }
-        }
-        else {
-            if(isAlive()) {
+            else {
                 incrementAge();
                 incrementHunger();
                 incrementSickness();
-                if(! freeLocations.isEmpty()) {
+                if (!freeLocations.isEmpty()) {
                     giveBirth(nextFieldState, freeLocations);
                 }
                 // Move towards a source of food if found.
                 Location nextLocation = findFood(currentField);
-                if(nextLocation == null && ! freeLocations.isEmpty()) {
+                if (nextLocation == null && !freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
-                    nextLocation = freeLocations.remove(0);
+                    nextLocation = freeLocations.removeFirst();
                 }
                 // Searches for poop to eat as a last resort, yikes!
-                if(nextLocation == null) {
+                if (nextLocation == null) {
                     nextLocation = findPoop(currentField);
                 }
                 // See if it was possible to move.
-                if(nextLocation != null) {
+                if (nextLocation != null) {
                     setLocation(nextLocation);
                     nextFieldState.placeCharacter(this, nextLocation);
-                }
-                else {
+                } else {
                     // Overcrowding.
                     setDead();
                 }
@@ -207,7 +202,7 @@ public abstract class Prey extends Characters
     }
 
     /**
-     * Check whether or not this prey is to give birth at this step.
+     * Check whether this prey is to give birth at this step.
      * New births will be made into free adjacent locations.
      * @param freeLocations The locations that are free in the current field.
      */

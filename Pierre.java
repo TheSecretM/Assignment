@@ -6,7 +6,7 @@ import java.util.List;
  * any actions at that time.
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 2.0
+ * @version 2.1
  */
 public class Pierre extends Prey
 {
@@ -19,7 +19,7 @@ public class Pierre extends Prey
     }
     
     /**
-     * Check whether or not this prey is to give birth at this step.
+     * Check whether this prey is to give birth at this step.
      * New births will be made into free adjacent locations.
      * @param freeLocations The locations that are free in the current field.
      */
@@ -30,7 +30,7 @@ public class Pierre extends Prey
         int births = breed();
         if(births > 0) {
             for (int b = 0; b < births && !freeLocations.isEmpty(); b++) {
-                Location loc = freeLocations.remove(0);
+                Location loc = freeLocations.removeFirst();
                 Prey young = new Pierre(false, loc);
                 nextFieldState.placeCharacter(young, loc);
             }

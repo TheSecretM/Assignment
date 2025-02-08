@@ -3,12 +3,12 @@ import java.util.Iterator;
 import java.util.Random;
 
 /**
- * Michael is the LEGENDARY PROFESSO.... i mean the subclass of Predators. 
+ * Michael is the LEGENDARY PROFESSO.... I mean the subclass of Predators.
  * Michael eats Prey and can be eaten by Predator subclass Josh. They sleep 
  * at night and can poop.
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 3.0
+ * @version 3.1
  */
 public class Michael extends Predator
 {
@@ -36,7 +36,7 @@ public class Michael extends Predator
         int births = breed();
         if(births > 0) {
             for (int b = 0; b < births && ! freeLocations.isEmpty(); b++) {
-                Location loc = freeLocations.remove(0);
+                Location loc = freeLocations.removeFirst();
                 Michael young = new Michael(false, loc);
                 nextFieldState.placeCharacter(young, loc);
             }
@@ -84,7 +84,7 @@ public class Michael extends Predator
                 Location nextLocation = findFood(currentField);
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
-                    nextLocation = freeLocations.remove(0);
+                    nextLocation = freeLocations.removeFirst();
                 }
                 // Searches for poop to eat as a last resort, yikes!
                 if(nextLocation == null) {
@@ -144,7 +144,7 @@ public class Michael extends Predator
      * Michael shamelessly poops on one of the adjacent locations.
      */
     private void poop(Field nextFieldState, List<Location> freeLocations) {
-        Location loc = freeLocations.remove(0);
+        Location loc = freeLocations.removeFirst();
         Poop fresh = new Poop(loc);
         sound.playSound();
         nextFieldState.placeCharacter(fresh, loc);

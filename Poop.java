@@ -5,7 +5,7 @@
  * eat them sick...
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 2.0
+ * @version 2.1
  */
 public class Poop extends Characters
 {
@@ -37,17 +37,11 @@ public class Poop extends Characters
     }
     
     /**
-     * No change to it's actions at night, so it simply 
+     * No change to its actions at night, so it simply
      * does the usual act.
      */
     public void nightAct(Field currentField, Field nextFieldState) {
         act(currentField, nextFieldState);
     }
 
-    /**
-     * @return The age of the Poop as an int.
-     */
-    private int getAge() {
-        return age;
-    }
 }

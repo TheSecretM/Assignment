@@ -8,7 +8,7 @@ import java.util.Random;
  * to them through adjacent preys.
  * 
  * @author David J. Barnes and Michael Kölling and Majed Alali and Vinushan Nagentherarajah
- * @version 9.0
+ * @version 9.1
  */
 public abstract class Predator extends Characters
 {
@@ -24,9 +24,6 @@ public abstract class Predator extends Characters
     // The food value of a single prey. In effect, this is the
     // number of steps a predator can go before it has to eat again.
     protected static final int PREY_FOOD_VALUE = 15;
-    // Determines the value above which predator won't eat 
-    // until it goes below that again.
-    private static final int HUNGER_VALUE = 150;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     
@@ -36,13 +33,9 @@ public abstract class Predator extends Characters
     private int age;
     // The predator's food level, which is increased by eating prey.
     protected int foodLevel;
-    // The predator's wellness.
-    private boolean sick;
-    // Movement attempts counter (sick predators can't move well enough)
-    private int move;
 
     /**
-     * Create a predator. A predator can be created as a new born (age zero
+     * Create a predator. A predator can be created as a newborn (age zero
      * and not hungry) or with a random age and food level.
      * 
      * @param randomAge If true, the predator will have random age and hunger level.
@@ -52,7 +45,6 @@ public abstract class Predator extends Characters
     {
         super(location);
         age = 0;
-        sick = false;
         if(randomAge) {
             age = rand.nextInt(MAX_AGE);
         }
@@ -172,11 +164,5 @@ public abstract class Predator extends Characters
     {
         return age >= BREEDING_AGE;
     }
-    
-    /**
-     * @return The age of the predator in int.
-     */
-    protected int getAge() {
-        return age;
-    }
+
 }
