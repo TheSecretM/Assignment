@@ -3,11 +3,11 @@ import java.util.Random;
 
 /**
  * Luis is a subclass of Prey that can only reproduce if a male Luis 
- * and female Luis are in close proximity to each other. Luis do not 
+ * and female Luis are close to each other. Luis do not
  * sleep at night and continue acting throughout the day.
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 2.3
+ * @version 2.4
  */
 public class Luis extends Prey
 {
@@ -30,7 +30,7 @@ public class Luis extends Prey
     /**
      * This is what Luis does most of the time: it moves around 
      * and looks for plants to eat. In the process, it might breed 
-     * when in close proximity to another Luis of a different gender, 
+     * when close to another Luis of a different gender,
      * it might die of hunger, or die of old age.
      * @param currentField The field currently occupied.
      * @param nextFieldState The updated field.
@@ -58,7 +58,7 @@ public class Luis extends Prey
                 incrementHunger();
                 incrementSickness();
                 if(! freeLocations.isEmpty()) {
-                    // Lists closeby characters and stores them in a List
+                    // Lists close by characters and stores them in a List
                     List<Location> occupiedInNext =
                         nextFieldState.getAdjacentLocations(getLocation());
                     occupiedInNext.removeAll(freeLocations);
@@ -75,7 +75,7 @@ public class Luis extends Prey
                 Location nextLocation = findFood(currentField);
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
-                    nextLocation = freeLocations.remove(0);
+                    nextLocation = freeLocations.removeFirst();
                 }
                 // Searches for poop to eat as a last resort, yikes!
                 if(nextLocation == null) {
@@ -106,7 +106,7 @@ public class Luis extends Prey
         int births = breed();
         if(births > 0) {
             for (int b = 0; b < births && !freeLocations.isEmpty(); b++) {
-                Location loc = freeLocations.remove(0);
+                Location loc = freeLocations.removeFirst();
                 Prey young = new Luis(false, loc);
                 nextFieldState.placeCharacter(young, loc);
             }
@@ -136,7 +136,7 @@ public class Luis extends Prey
      * Checks if the other Luis object has a different gender 
      * compared to this Luis object.
      * @return True if gender is different. False if both have the same gender.
-     * @param secondLuis The second Luis who's gender is to be checked 
+     * @param secondLuis The second Luis whose gender is to be checked
      * alongside the current Luis block.
      * @param luis This Luis object.
      */
@@ -157,7 +157,7 @@ public class Luis extends Prey
      * Checks if there is another Luis character close to this 
      * Luis character are returns it if so, prioritising one with a 
      * different gender if found, or null if none are close.
-     * @return The Luis in close proximity giving priority to one 
+     * @return The nearby Luis, giving priority to one
      * with different gender than this Luis, or null if none are found
      * @param closebyCharacters The list of locations of characters 
      * close to this Luis.
