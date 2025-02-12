@@ -94,11 +94,12 @@ public class Simulator
     public void simulateOneStep()
     {
         step++;
-        // Might change the weather conditions every 100 steps.
+        // Might change the weather condition every 100 steps.
         if(step%100 == 0) {
             time.incrementDay();
             weather.change();
         }
+        // Plants grow at different intervals based on the weather
         if(weather.isRainy()) {
             if(step%15 == 0) {
                 growPlants();
@@ -231,7 +232,7 @@ public class Simulator
     }
 
     /**
-     * Grows Plants only without resetting the field.
+     * Grows Plants in empty Locations without resetting the field.
      */
     private void growPlants() {
         Random rand = Randomizer.getRandom();
@@ -240,9 +241,9 @@ public class Simulator
                 Location location = new Location(row, col);
                 Characters character = field.getCharacterAt(location);
                 if(character == null) {
-                    // Only has a possibility of growing plants were no character is present
-                    int num = rand.nextInt(0, 2);
-                    if(num == 0) {
+                    // Only has a possibility of growing 
+                    // plants were no character is present.
+                    if(rand.nextBoolean()) {
                         Plant plant = new Plant(location);
                         field.placeCharacter(plant, location);
                     }
