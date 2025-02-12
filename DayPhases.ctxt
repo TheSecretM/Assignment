@@ -5,4 +5,5 @@ comment1.params=dayPhaseName
 comment1.target=DayPhases(java.lang.String)
 comment2.params=
 comment2.target=java.lang.String\ toString()
+comment2.text=\r\n\ Changes\ the\ day\ phase\ to\ its\ string\ counterpart.\r\n
 numComments=3
