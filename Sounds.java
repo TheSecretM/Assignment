@@ -9,17 +9,19 @@ import javafx.embed.swing.JFXPanel;
  * playing them.
  *
  * @author Majed Alali and Vinushan Nagentherarajah
- * @version 1.0
+ * @version 1.1
  */
 public class Sounds {
     // List of all files in the sound-effects directory.
-    File[] files;
+    private final File[] files;
+    // Name of the file in which the sound files are found.
+    private static final String SOUND_FILE = "sound-effects";
 
     /**
      * Constructor of the class Sounds.
      */
     public Sounds() {
-        files = new File("sound-effects").listFiles();
+        files = new File(SOUND_FILE).listFiles();
         final JFXPanel fxPanel = new JFXPanel();
     }
 
@@ -28,10 +30,15 @@ public class Sounds {
      * Or returns null if no file was found with such name.
      */
     private File getSoundEffects(String fileName) {
-        for(File file : files) {
-            if(file.getName().equals(fileName)) {
-                return file;
+        try {
+            for(File file : files) {
+                if(file.getName().equals(fileName)) {
+                    return file;
+                }
             }
+        }
+        catch(NullPointerException e) {
+            System.out.println(e + "\n" + "Make sure you pass a valid name for the sound folder");
         }
         return null;
     }
@@ -48,7 +55,7 @@ public class Sounds {
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             mediaPlayer.play();
         } catch (NullPointerException e) {
-            System.out.println(e + "Make sure you enter a valid sound file from sound-effects folder in the corresponding sound class");
+            System.out.println(e + "\n" + ": Make sure you enter a valid sound file from sound-effects folder in the corresponding sound class");
         }
     }
 }
