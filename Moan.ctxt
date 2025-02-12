@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Moan
+comment0.text=\r\n\ Moan\ is\ a\ sound\ of\ moaning...\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Moan()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Moan\r\n
+comment2.params=
+comment2.target=void\ playSound()
+comment2.text=\r\n\ Plays\ a\ sound\ that\ resembles\ moaning\ something\ \r\n\ time\ it's\ called.\r\n
+numComments=3
