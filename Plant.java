@@ -98,11 +98,14 @@ public class Plant extends Characters
      */
     public void act(Field currentField, Field nextFieldState)
     {
+        if(getLocation() == null) {
+            setDead();
+        }
         if(isAlive()) {
             incrementAge();
             // Makes sure the object remains in place while not getting 
             // removed from the field.
-            nextFieldState.placeCharacter(this, this.location);
+            nextFieldState.placeCharacter(this, this.getLocation());
             // Checks Adjacent Locations for a free space for giving birth.
             List<Location> freeLocations = 
             nextFieldState.getFreeAdjacentLocations(getLocation());
@@ -117,17 +120,20 @@ public class Plant extends Characters
      * it's actions are the same.
      */
     public void nightAct(Field currentField, Field nextFieldState) {
+        if(getLocation() == null) {
+            setDead();
+        }
         if(isAlive()) {
             incrementAge();
             // Makes sure the object remains in place while not getting 
             // removed from the field.
-            nextFieldState.placeCharacter(this, this.location);
+            nextFieldState.placeCharacter(this, this.getLocation());
             // Checks Adjacent Locations for a free space for giving birth.
             List<Location> freeLocations = 
             nextFieldState.getFreeAdjacentLocations(getLocation());
             if(!freeLocations.isEmpty()) {
                 Random rand = new Random();
-                if(rand.nextBoolean()) {
+                if(rand.nextInt(15) == 0) {
                     giveBirth(nextFieldState, freeLocations);
                 }
             }
