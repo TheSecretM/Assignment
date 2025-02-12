@@ -18,7 +18,7 @@ public abstract class Predator extends Characters
     // The age to which a predator can live.
     private static final int MAX_AGE = 200;
     // The likelihood of a predator breeding.
-    private static final double BREEDING_PROBABILITY = 0.06;
+    private static final double BREEDING_PROBABILITY = 0.04;
     // The maximum number of births.
     private static final int MAX_CHILD_SIZE = 2;
     // The food value of a single prey. In effect, this is the
