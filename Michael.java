@@ -13,7 +13,7 @@ import java.util.Random;
 public class Michael extends Predator
 {
     // Used to play poop sounds in certain conditions...
-    Pooping sound;
+    private static Pooping sound;
 
     /**
      * Constructor for objects of class Michael
@@ -61,13 +61,11 @@ public class Michael extends Predator
             nextFieldState.getFreeAdjacentLocations(getLocation());
         occupied.removeAll(freeLocations);
         diseaseTransfer(occupied, currentField);
-        if(!canMove()) {
-            if(isAlive()) {
+        if(isAlive()) {
+            if(!canMove()) {
                 nextFieldState.placeCharacter(this, getLocation());
             }
-        }
-        else {
-            if(isAlive()) {
+            else {
                 incrementAge();
                 incrementHunger();
                 incrementSickness();
@@ -102,7 +100,7 @@ public class Michael extends Predator
             }
         }
     }
-    
+
     /**
      * The lazy old man... I mean the great Michael sleeps at night, 
      * doing nothing and miraculously not even aging, which 
