@@ -127,10 +127,9 @@ public abstract class Characters
             }
             else {
                 moveCounter = 0;
-                return true;
             }
         }
-            return true;
+        return true;
     }
     
     /**
