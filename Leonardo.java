@@ -11,8 +11,8 @@ import java.util.Random;
  */
 public class Leonardo extends Prey
 {
-    // The probability of Luis breeding.
-    private static final double BREEDING_PROBABILITY = 0.94;
+    // The probability of Leonardo breeding.
+    private static final double BREEDING_PROBABILITY = 0.97;
     // Determines if a Leonardo object is male or not a male(female).
     private final boolean male;
     /**
@@ -24,7 +24,7 @@ public class Leonardo extends Prey
         Random rand = new Random();
         male = rand.nextBoolean();
     }
-    
+
     /**
      * This is what Leonardo does most of the time: it moves around 
      * and looks for plants to eat. In the process, it might breed 
@@ -45,13 +45,11 @@ public class Leonardo extends Prey
             nextFieldState.getFreeAdjacentLocations(getLocation());
         occupied.removeAll(freeLocations);
         diseaseTransfer(occupied, currentField);
-        if(!canMove()) {
-            if(isAlive()) {
+        if(isAlive()) {
+            if(!canMove()) {
                 nextFieldState.placeCharacter(this, getLocation());
             }
-        }
-        else {
-            if(isAlive()) {
+            else {
                 incrementAge();
                 incrementHunger();
                 incrementSickness();
@@ -60,7 +58,7 @@ public class Leonardo extends Prey
                     List<Location> occupiedInNext =
                         nextFieldState.getAdjacentLocations(getLocation());
                     occupiedInNext.removeAll(freeLocations);
-                    Leonardo second = closebyLeonardo(occupiedInNext, currentField);
+                    Leonardo second = closeByLeonardo(occupiedInNext, currentField);
                     // Only gives birth when 2 Luis objects are close 
                     // to each other and are of different genders.
                     if(second != null) {
@@ -91,7 +89,7 @@ public class Leonardo extends Prey
             }
         }
     }
-    
+
     /**
      * Check whether this prey is to give birth at this step.
      * New births will be made into free adjacent locations.
@@ -110,7 +108,7 @@ public class Leonardo extends Prey
             }
         }
     }
-    
+
     /**
      * Generate a number representing the number of births,
      * if it can breed.
@@ -129,20 +127,20 @@ public class Leonardo extends Prey
         }
         return births;
     }
-    
+
     /**
      * Checks if there is another Leonardo character close to this 
      * Leonardo character are returns it if so, prioritising one with a 
      * different gender if found, or null if none are close.
      * @return The nearby Leonardo giving priority to one
      * with different gender than this Leonardo, or null if none are found
-     * @param closebyCharacters The list of locations of characters 
+     * @param closeByCharacters The list of locations of characters
      * close to this Leonardo.
      * @param currentField The current field.
      */
-    private Leonardo closebyLeonardo(List<Location> closebyCharacters, Field currentField) {
+    private Leonardo closeByLeonardo(List<Location> closeByCharacters, Field currentField) {
         Leonardo lastLeonardo = null;
-        for(Location location : closebyCharacters) {
+        for(Location location : closeByCharacters) {
             if(currentField.getCharacterAt(location) instanceof Leonardo leonardo) {
                 if(this.sameGender(this, leonardo)) {
                     return leonardo;
@@ -154,7 +152,7 @@ public class Leonardo extends Prey
         }
         return lastLeonardo;
     }
-    
+
     /**
      * Checks if the other Leonardo object has a different gender 
      * compared to this Leonardo object.
