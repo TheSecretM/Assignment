@@ -5,7 +5,7 @@ import java.util.*;
  * Each position is able to store a single character/object.
  * 
  * @author David J. Barnes and Michael Kölling and Majed Alali and Vinushan Nagentherarajah
- * @version 9.1
+ * @version 9.2
  */
 public class Field
 {
@@ -14,10 +14,12 @@ public class Field
     
     // The dimensions of the field.
     private final int depth, width;
-    // Animals mapped by location.
+    // Characters mapped by location.
     private final Map<Location, Characters> field = new HashMap<>();
     // The characters.
     private final List<Characters> characters = new ArrayList<>();
+    // The stats of the field
+    FieldStats stats = new FieldStats();
 
     /**
      * Represent a field of the given dimensions.
@@ -41,7 +43,7 @@ public class Field
     {
         assert location != null;
         boolean change = true;
-        Object other = field.get(location);
+        Characters other = field.get(location);
         // Nothing overtakes Josh's place (He is immortal)
         if(other != null) {
             if(other instanceof Josh) {
@@ -49,6 +51,7 @@ public class Field
             }
             else {
                 characters.remove(other);
+                other.setDead();
             }
         }
         if(change) {
@@ -126,33 +129,13 @@ public class Field
     }
 
     /**
-     * Print out the number of predators, preys and plants in the field.
+     * Print out the number of each type of Character in the field. Does not
+     * print anything for Characters that have no appearance on the field.
      */
     public void fieldStats()
     {
-        int numPredators = 0, numPreys = 0, numPlants = 0, numPoops = 0;
-        for(Characters chara : field.values()) {
-            if(chara != null) {
-                if(chara.isAlive()) {
-                    if(chara instanceof Plant) {
-                        numPlants++;
-                    }
-                    else if(chara instanceof Prey) {
-                        numPreys++;
-                    }
-                    else if(chara instanceof Predator) {
-                        numPredators++;
-                    }
-                    else if(chara instanceof Poop) {
-                        numPoops++;
-                    }
-                }
-            }
-        }
-        System.out.println("Preys: " + numPreys +
-                           " Predators: " + numPredators +
-                           " Plants: " + numPlants +
-                           " Poops: " + numPoops);
+        stats.reset();
+        System.out.println(stats.getPopulationDetails(this));
     }
 
     /**
