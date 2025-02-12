@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Josh is a subclass of Predator and is the top of the food chain 
@@ -11,8 +12,10 @@ import java.util.Iterator;
  */
 public class Josh extends Predator
 {
-    // Used to play crunch sounds in certain conditions...
-    Crunch sound;
+    // Used to play crunch sounds in a certain condition...
+    private static Crunch crunch;
+    // Used to play moaning sounds in a certain condition...
+    private static Moan moan;
 
     /**
      * Constructor for objects of class Josh.
@@ -20,7 +23,8 @@ public class Josh extends Predator
     public Josh(boolean randomAge, Location location)
     {
         super(randomAge, location);
-        sound = new Crunch();
+        crunch = new Crunch();
+        moan = new Moan();
     }
 
     /**
@@ -57,6 +61,11 @@ public class Josh extends Predator
                     // to each other and are of different genders.
                     if(michael != null) {
                         giveBirth(nextFieldState, freeLocations);
+                        // Updates the list of free locations after 
+                        // possibly giving birth.
+                        freeLocations =
+                        nextFieldState.getFreeAdjacentLocations(getLocation());
+                        occupied.removeAll(freeLocations);
                     }
                 }
                 // Move towards a source of food if found.
@@ -64,7 +73,7 @@ public class Josh extends Predator
                     // No food found - try to move to a free location.
                     nextLocation = freeLocations.removeFirst();
                 }
-                // Searches for poop to eat as a last resort, yikes!
+                // Searches for poop to eat if no food found, yikes!
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
                     nextLocation = findPoop(currentField);
                 }
@@ -92,7 +101,7 @@ public class Josh extends Predator
     
     /**
      * Nothing changes for Josh during the night, his actions 
-     * are exactly the same as during the day. Hunt, breed Michaels, 
+     * are exactly the same as during the day. Hunt, breed one or more Michael,
      * maybe eat poop and/or get sick. or eat anyone in his way if
      * the place is overcrowded.
      */
@@ -118,7 +127,7 @@ public class Josh extends Predator
             if(character instanceof Michael michael) {
                 if(michael.isAlive()) {
                     michael.setDead();
-                    sound.playSound();
+                    crunch.playSound();
                     foodLocation = loc;
                 }
             }
@@ -142,14 +151,13 @@ public class Josh extends Predator
     protected void giveBirth(Field nextFieldState, List<Location> freeLocations)
     {
         // New Michael Predators are born into adjacent locations.
-        // Get a list of adjacent free locations.
-        int births = breed();
-        if(births > 0) {
-            for (int b = 0; b < births && ! freeLocations.isEmpty(); b++) {
-                Location loc = freeLocations.removeFirst();
-                Predator young = new Michael(false, loc);
-                nextFieldState.placeCharacter(young, loc);
-            }
+        Random rand = new Random();
+        int births = rand.nextInt(10);
+        if(births == 0 && ! freeLocations.isEmpty()) {
+            Location loc = freeLocations.removeFirst();
+            Predator young = new Michael(false, loc);
+            moan.playSound();
+            nextFieldState.placeCharacter(young, loc);
         }
     }
     
@@ -160,12 +168,12 @@ public class Josh extends Predator
      * @return Michael if a Michael object was found in one of the 
      * adjacent spots, or none if no Michael object is adjacent
      * to this Josh object.
-     * @param closebyCharacters The list of locations occupied 
+     * @param closeByCharacters The list of locations occupied
      * by Characters adjacent to this Josh object.
      * @param field The field to check.
      */
-    private Michael closebyMichael(List<Location> closebyCharacters, Field field) {
-        for(Location location : closebyCharacters) {
+    private Michael closebyMichael(List<Location> closeByCharacters, Field field) {
+        for(Location location : closeByCharacters) {
             if(field.getCharacterAt(location) instanceof Michael michael) {
                 return michael;
             }
