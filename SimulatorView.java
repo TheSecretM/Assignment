@@ -133,14 +133,6 @@ public class SimulatorView extends JFrame
         fieldView.repaint();
     }
 
-    /**
-     * Determine whether the simulation should continue to run.
-     * @return true If there is more than one species alive.
-     */
-    public boolean isViable(Field field)
-    {
-        return stats.isViable(field);
-    }
     
     /**
      * Provide a graphical view of a rectangular field. This is 
