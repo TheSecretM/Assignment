@@ -12,7 +12,7 @@ import java.util.Random;
 public class Luis extends Prey
 {
     // The probability of Luis breeding.
-    private static final double BREEDING_PROBABILITY = 0.94;
+    private static final double BREEDING_PROBABILITY = 0.97;
     // Determines if a Luis object is male or not a male(female).
     private final boolean male;
 
@@ -47,13 +47,11 @@ public class Luis extends Prey
             nextFieldState.getFreeAdjacentLocations(getLocation());
         occupied.removeAll(freeLocations);
         diseaseTransfer(occupied, currentField);
-        if(!canMove()) {
-            if(isAlive()) {
+        if(isAlive()) {
+            if(!canMove()) {
                 nextFieldState.placeCharacter(this, getLocation());
             }
-        }
-        else {
-            if(isAlive()) {
+            else {
                 incrementAge();
                 incrementHunger();
                 incrementSickness();
@@ -62,7 +60,7 @@ public class Luis extends Prey
                     List<Location> occupiedInNext =
                         nextFieldState.getAdjacentLocations(getLocation());
                     occupiedInNext.removeAll(freeLocations);
-                    Luis second = closebyLuis(occupiedInNext, currentField);
+                    Luis second = closeByLuis(occupiedInNext, currentField);
                     // Only gives birth when 2 Luis objects are close 
                     // to each other and are of different genders.
                     if(second != null) {
@@ -73,7 +71,7 @@ public class Luis extends Prey
                 }
                 // Move towards a source of food if found.
                 Location nextLocation = findFood(currentField);
-                if(nextLocation == null && ! freeLocations.isEmpty()) {
+                if(nextLocation == null && !freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
                     nextLocation = freeLocations.removeFirst();
                 }
@@ -159,13 +157,13 @@ public class Luis extends Prey
      * different gender if found, or null if none are close.
      * @return The nearby Luis, giving priority to one
      * with different gender than this Luis, or null if none are found
-     * @param closebyCharacters The list of locations of characters 
+     * @param closeByCharacters The list of locations of characters
      * close to this Luis.
      * @param currentField The current field.
      */
-    private Luis closebyLuis(List<Location> closebyCharacters, Field currentField) {
+    private Luis closeByLuis(List<Location> closeByCharacters, Field currentField) {
         Luis lastLuis = null;
-        for(Location location : closebyCharacters) {
+        for(Location location : closeByCharacters) {
             if(currentField.getCharacterAt(location) instanceof Luis luis) {
                 if(this.differentGender(this, luis)) {
                     return luis;
