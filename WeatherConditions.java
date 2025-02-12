@@ -14,12 +14,12 @@ public enum WeatherConditions
     WeatherConditions(String conditionName) {
         weatherCondition = conditionName;
     }
-    
-    @Override
+
     /**
      * Changes the weather condition to its string counterpart.
      * @return The weather condition's string name.
      */
+    @Override
     public String toString() {
         return weatherCondition;
     }

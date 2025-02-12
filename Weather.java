@@ -11,35 +11,29 @@ public class Weather
 {
     // The current weather condition.
     private WeatherConditions currentWeather;
-    // Random number generator.
-    private Random rand = new Random();
     /**
      * Constructor for objects of class Weather
      */
     public Weather()
     {
-        this.currentWeather = WeatherConditions.SUN;
+        currentWeather = WeatherConditions.SUN;
     }
     
     /**
      * Changes the weather condition by a random choice, with 
-     * the first weather (sunny) having a probability of 70%, while 
-     * the other 3 weather conditions each have a probability of 
-     * 10% of occurring.
+     * the first weather (sunny) having a very high probability, while
+     * the other weather conditions each have an equal and low
+     * probability.
      */
     public void change() {
-        int num = rand.nextInt(0, 10);
-        if(num == 0) {
-            currentWeather = WeatherConditions.RAIN;
-        }
-        else if(num == 1) {
-            currentWeather = WeatherConditions.SNOW;
-        }
-        else if(num == 2) {
-            currentWeather = WeatherConditions.FOG;
+        Random rand = new Random();
+        WeatherConditions[] weathers = WeatherConditions.values();
+        int num = rand.nextInt(0, 10 + WeatherConditions.values().length);
+        if(num < weathers.length) {
+            currentWeather = weathers[num];
         }
         else {
-            currentWeather = WeatherConditions.SUN;
+            currentWeather = weathers[0];
         }
     }
     
