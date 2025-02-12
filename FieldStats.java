@@ -7,11 +7,11 @@ import java.util.Map;
  * for any class of object that is found within the field.
  * 
  * @author David J. Barnes and Michael Kölling
- * @version 7.0
+ * @version 7.1
  */
 public class FieldStats
 {
-    // Counters for each type of entity (fox, rabbit, etc.) in the simulation.
+    // Counters for each type of entity (Michael, Josh, etc.) in the simulation.
     private final Map<Class<?>, Counter> counters;
     // Whether the counters are currently up to date.
     private boolean countsValid;
@@ -66,13 +66,9 @@ public class FieldStats
      */
     public void incrementCount(Class<?> charaClass)
     {
-        Counter count = counters.get(charaClass);
-        if(count == null) {
-            // We do not have a counter for this species yet.
-            // Create one.
-            count = new Counter(charaClass.getName());
-            counters.put(charaClass, count);
-        }
+        // Creates a counter for this species if none exist, then increments it.
+        Counter count = counters.computeIfAbsent(
+                charaClass, k -> new Counter(charaClass.getName()));
         count.increment();
     }
 
@@ -84,19 +80,10 @@ public class FieldStats
         countsValid = true;
     }
 
-    /**
-     * Determine whether the simulation is still viable.
-     * I.e., should it continue to run.
-     * @return true If there is more than one species alive.
-     */
-    public boolean isViable(Field field)
-    {
-        return field.isViable();
-    }
     
     /**
-     * Generate counts of the number of foxes and rabbits.
-     * These are not kept up to date as foxes and rabbits
+     * Generate counts of the number of each class of Characters.
+     * These are not kept up to date as Characters
      * are placed in the field, but only when a request
      * is made for the information.
      * @param field The field to generate the stats for.
