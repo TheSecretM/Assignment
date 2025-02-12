@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Pooping
-comment0.text=\r\n\ Simply\ a\ sound\ of\ someone\ releasing\ a\ turd\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 2.1\r\n
+comment0.text=\r\n\ Simply\ a\ sound\ of\ someone\ pooping...\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.0\r\n
 comment1.params=
 comment1.target=Pooping()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Pooping\r\n

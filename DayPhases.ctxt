@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DayPhases
-comment0.text=\r\n\ Indicates\ the\ day\ phases\ of\ any\ day\ in\ the\ game.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Indicates\ the\ day\ phases\ of\ any\ day\ in\ the\ game.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.1\r\n
 comment1.params=dayPhaseName
 comment1.target=DayPhases(java.lang.String)
 comment2.params=

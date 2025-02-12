@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Prey
-comment0.text=\r\n\ A\ simple\ model\ of\ a\ prey,\ based\ on\ the\ rabbit's\ class.\r\n\ Preys\ age,\ move,\ breed,\ and\ die.\ They\ might\ also\ eat\ waste\ and\ get\ sick,\ hindering\ their\ \r\n\ movements.\ And\ might\ spread\ the\ disease\ to\ nearby\ Animals\r\n\ \r\n\ @author\ David\ J.\ Barnes\ and\ Michael\ K\u00F6lling\ and\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 9.1\r\n
+comment0.text=\r\n\ A\ simple\ model\ of\ a\ prey,\ based\ on\ the\ rabbit's\ class.\r\n\ Preys\ age,\ move,\ breed,\ and\ die.\ They\ might\ also\ eat\ waste\ and\ get\ sick,\ hindering\ their\ \r\n\ movements.\ And\ might\ spread\ the\ disease\ to\ nearby\ Animals\r\n\ \r\n\ @author\ David\ J.\ Barnes\ and\ Michael\ K\u00F6lling\ and\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 9.2\r\n
 comment1.params=randomAge\ location
 comment1.target=Prey(boolean,\ Location)
-comment1.text=\r\n\ Create\ a\ new\ prey.\ A\ prey\ may\ be\ created\ with\ age\r\n\ zero\ (a\ new\ born)\ or\ with\ a\ random\ age.\r\n\ \r\n\ @param\ randomAge\ If\ true,\ the\ prey\ will\ have\ a\ random\ age.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n
+comment1.text=\r\n\ Create\ a\ new\ prey.\ A\ prey\ may\ be\ created\ with\ age\r\n\ zero\ (a\ newborn)\ or\ with\ a\ random\ age.\r\n\ \r\n\ @param\ randomAge\ If\ true,\ the\ prey\ will\ have\ a\ random\ age.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n
 comment10.params=
 comment10.target=int\ breed()
 comment10.text=\r\n\ Generate\ a\ number\ representing\ the\ number\ of\ births,\r\n\ if\ it\ can\ breed.\r\n\ @return\ The\ number\ of\ births\ (may\ be\ zero).\r\n
@@ -32,5 +32,5 @@ comment8.target=void\ incrementAge()
 comment8.text=\r\n\ Increase\ the\ age.\r\n\ This\ could\ result\ in\ the\ prey's\ death.\r\n
 comment9.params=nextFieldState\ freeLocations
 comment9.target=void\ giveBirth(Field,\ java.util.List)
-comment9.text=\r\n\ Check\ whether\ or\ not\ this\ prey\ is\ to\ give\ birth\ at\ this\ step.\r\n\ New\ births\ will\ be\ made\ into\ free\ adjacent\ locations.\r\n\ @param\ freeLocations\ The\ locations\ that\ are\ free\ in\ the\ current\ field.\r\n
+comment9.text=\r\n\ Check\ whether\ this\ prey\ is\ to\ give\ birth\ at\ this\ step.\r\n\ New\ births\ will\ be\ made\ into\ free\ adjacent\ locations.\r\n\ @param\ freeLocations\ The\ locations\ that\ are\ free\ in\ the\ current\ field.\r\n
 numComments=12

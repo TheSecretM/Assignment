@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=WeatherConditions
-comment0.text=\r\n\ Indicates\ the\ Weather\ types\ allowed\ in\ the\ game.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Indicates\ the\ Weather\ types\ allowed\ in\ the\ game.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.1\r\n
 comment1.params=conditionName
 comment1.target=WeatherConditions(java.lang.String)
 comment2.params=

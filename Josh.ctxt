@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Josh
-comment0.text=\r\n\ Josh\ is\ a\ subclass\ of\ Predator\ and\ is\ the\ top\ of\ the\ food\ chain\ \r\n\ hierarchy.\ They\ can\ eat\ Predators\ and\ Preys\ and\ never\ age\ or\ die,\ but\ they\ \r\n\ never\ reproduce.\ They\ continue\ moving\ through\ the\ night.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.3\r\n
+comment0.text=\r\n\ Josh\ is\ a\ subclass\ of\ Predator\ and\ is\ the\ top\ of\ the\ food\ chain\ \r\n\ hierarchy.\ They\ can\ eat\ Predators\ and\ Preys\ and\ never\ age\ or\ die,\ but\ they\ \r\n\ never\ reproduce.\ They\ continue\ moving\ through\ the\ night.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.4\r\n
 comment1.params=randomAge\ location
 comment1.target=Josh(boolean,\ Location)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Josh.\r\n
@@ -18,7 +18,7 @@ comment5.target=void\ giveBirth(Field,\ java.util.List)
 comment5.text=\r\n\ Check\ whether\ this\ Josh\ object\ is\ to\ give\ birth\ at\ this\ step.\r\n\ New\ births\ will\ be\ made\ into\ free\ adjacent\ locations.\ Josh\ \r\n\ can\ surprisingly\ only\ give\ birth\ to\ Michael...\r\n\ @param\ freeLocations\ The\ locations\ that\ are\ free\ in\ the\ current\ field.\r\n\ @param\ nextFieldState\ The\ next\ field\ state\ to\ be\ used.\r\n
 comment6.params=closebyCharacters\ field
 comment6.target=Michael\ closebyMichael(java.util.List,\ Field)
-comment6.text=\r\n\ Checks\ for\ any\ closeby\ Michael\ Predators\ in\ the\ next\ field\ \r\n\ state\ and\ returns\ the\ first\ one\ found,\ or\ null\ if\ none\ are\ \r\n\ found.\r\n\ @return\ Michael\ if\ a\ Michael\ object\ was\ found\ in\ one\ of\ the\ \r\n\ adjacent\ spots,\ or\ none\ if\ no\ Michael\ object\ is\ adjacent\r\n\ to\ this\ Josh\ object.\r\n\ @param\ closebyCharacters\ The\ list\ of\ locations\ occupied\ \r\n\ by\ Characters\ adjacent\ to\ this\ Josh\ object.\r\n\ @param\ field\ The\ field\ to\ check.\r\n
+comment6.text=\r\n\ Checks\ for\ any\ close\ by\ Michael\ Predators\ in\ the\ next\ field\r\n\ state\ and\ returns\ the\ first\ one\ found,\ or\ null\ if\ none\ are\ \r\n\ found.\r\n\ @return\ Michael\ if\ a\ Michael\ object\ was\ found\ in\ one\ of\ the\ \r\n\ adjacent\ spots,\ or\ none\ if\ no\ Michael\ object\ is\ adjacent\r\n\ to\ this\ Josh\ object.\r\n\ @param\ closebyCharacters\ The\ list\ of\ locations\ occupied\ \r\n\ by\ Characters\ adjacent\ to\ this\ Josh\ object.\r\n\ @param\ field\ The\ field\ to\ check.\r\n
 comment7.params=occupiedSpots\ currentField\ nextFieldState
 comment7.target=Location\ overtake(java.util.List,\ Field,\ Field)
 comment7.text=\r\n\ With\ the\ almighty\ power,\ Josh\ overtakes\ a\ position\ of\ an\ adjacent\ \r\n\ character\ in\ case\ all\ other\ adjacent\ locations\ are\ occupied,\ \r\n\ ensuring\ his\ survival\ while\ also\ eating\ whatever\ character\ \r\n\ was\ in\ the\ overtaken\ spot.\ The\ last\ non-Josh\ character\ spotted\ \r\n\ will\ be\ overtaken.\r\n\ @param\ occupiedSpots\ The\ adjacent\ spots\ containing\ a\ character.\r\n\ @param\ currentField\ The\ current\ field\ object.\r\n\ @param\ nextFieldState\ The\ next\ field\ object\ to\ be\ used\ after\ this\ \r\n\ current\ field\ object.\r\n\ @return\ The\ new\ location\ to\ be\ placed\ in,\ or\ null\ if\ no\ \r\n\ overtaking\ happened.\r\n

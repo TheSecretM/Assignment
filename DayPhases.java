@@ -14,11 +14,11 @@ public enum DayPhases
     DayPhases (String dayPhaseName) {
         dayPhase = dayPhaseName;
     }
-    
-    @Override
+
     /**
      * Changes the day phase to its string counterpart.
      */
+    @Override
     public String toString() {
         return dayPhase;
     }

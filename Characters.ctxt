@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Characters
-comment0.text=\r\n\ Characters\ is\ an\ interface\ of\ all\ the\ actors\ in\ the\ field.\ \r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.0\r\n
+comment0.text=\r\n\ Characters\ is\ an\ interface\ of\ all\ the\ actors\ in\ the\ field.\ \r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.1\r\n
 comment1.params=location
 comment1.target=Characters(Location)
 comment1.text=\r\n\ Constructor\ of\ the\ class\ Characters.\r\n

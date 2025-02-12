@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Michael
-comment0.text=\r\n\ Michael\ is\ the\ LEGENDARY\ PROFESSO....\ i\ mean\ the\ subclass\ of\ Predators.\ \r\n\ Michael\ eats\ Prey\ and\ can\ be\ eaten\ by\ Predator\ subclass\ Josh.\ They\ sleep\ \r\n\ at\ night\ and\ can\ poop.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.0\r\n
+comment0.text=\r\n\ Michael\ is\ the\ LEGENDARY\ PROFESSO....\ I\ mean\ the\ subclass\ of\ Predators.\r\n\ Michael\ eats\ Prey\ and\ can\ be\ eaten\ by\ Predator\ subclass\ Josh.\ They\ sleep\ \r\n\ at\ night\ and\ can\ poop.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 3.1\r\n
 comment1.params=randomAge\ location
 comment1.target=Michael(boolean,\ Location)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Michael\r\n
