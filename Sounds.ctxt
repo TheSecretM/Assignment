@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Sounds
+comment0.text=\r\n\ Sounds\ is\ the\ class\ that\ stores\ all\ the\ files\ of\ the\ directory\ which\ contains\r\n\ the\ sound\ effects.\ It\ is\ responsible\ for\ fetching\ individual\ sound\ files\ and\r\n\ playing\ them.\r\n\r\n\ @author\ Majed\ Alali\ and\ Vinushan\ Nagentherarajah\r\n\ @version\ 1.1\r\n
+comment1.params=
+comment1.target=Sounds()
+comment1.text=\r\n\ Constructor\ of\ the\ class\ Sounds.\r\n
+comment2.params=fileName
+comment2.target=java.io.File\ getSoundEffects(java.lang.String)
+comment2.text=\r\n\ Gets\ a\ single\ file\ based\ on\ the\ name\ in\ string.\r\n\ Or\ returns\ null\ if\ no\ file\ was\ found\ with\ such\ name.\r\n
+comment3.params=fileName
+comment3.target=void\ playSoundEffects(java.lang.String)
+comment3.text=\r\n\ Plays\ the\ file\ with\ the\ given\ name,\ which\ is\ most\r\n\ likely\ a\ sound\ effect\ as\ this\ is\ the\ only\ use\ of\ this\r\n\ class\ as\ of\ the\ current\ code.\r\n
+numComments=4
