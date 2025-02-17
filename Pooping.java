@@ -12,7 +12,7 @@ public class Pooping extends Sounds
     // Used to count the number of times the sound was asked to play.
     private static int COUNT = 0;
     // The number of times the method should be called to execute.
-    private static final int PLAY_STEP = 50;
+    private static final int PLAY_STEP = 100;
 
     /**
      * Constructor for objects of class Pooping

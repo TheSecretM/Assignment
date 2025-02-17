@@ -51,6 +51,7 @@ public class Field
             }
             else {
                 characters.remove(other);
+                field.remove(location);
                 other.setDead();
             }
         }
@@ -149,8 +150,8 @@ public class Field
     }
 
     /**
-     * Return whether there is at least one rabbit and one fox in the field.
-     * @return true if there is at least one rabbit and one fox in the field.
+     * Return whether there is at least one prey and one predator in the field.
+     * @return true if there is at least one prey and one predator in the field.
      */
     public boolean isViable()
     {

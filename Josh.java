@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.Iterator;
-import java.util.Random;
 
 /**
  * Josh is a subclass of Predator and is the top of the food chain 
@@ -46,15 +45,12 @@ public class Josh extends Predator
             nextFieldState.getFreeAdjacentLocations(getLocation());
         occupied.removeAll(freeLocations);
         diseaseTransfer(occupied, currentField);
-        if(!canMove()) {
-            if(isAlive()) {
+        if(isAlive()) {
+            if(!canMove()) {
                 nextFieldState.placeCharacter(this, getLocation());
             }
-        }
-        else {
-            if(isAlive()) {
+            else {
                 incrementSickness();
-                Location nextLocation = findFood(currentField);
                 if(! freeLocations.isEmpty()) {
                     Michael michael = closebyMichael(occupied, currentField);
                     // Only gives birth when 2 Luis objects are close 
@@ -64,10 +60,11 @@ public class Josh extends Predator
                         // Updates the list of free locations after 
                         // possibly giving birth.
                         freeLocations =
-                        nextFieldState.getFreeAdjacentLocations(getLocation());
+                            nextFieldState.getFreeAdjacentLocations(getLocation());
                         occupied.removeAll(freeLocations);
                     }
                 }
+                Location nextLocation = findFood(currentField);
                 // Move towards a source of food if found.
                 if(nextLocation == null && ! freeLocations.isEmpty()) {
                     // No food found - try to move to a free location.
@@ -98,7 +95,7 @@ public class Josh extends Predator
             }
         }
     }
-    
+
     /**
      * Nothing changes for Josh during the night, his actions 
      * are exactly the same as during the day. Hunt, breed one or more Michael,
@@ -151,16 +148,14 @@ public class Josh extends Predator
     protected void giveBirth(Field nextFieldState, List<Location> freeLocations)
     {
         // New Michael Predators are born into adjacent locations.
-        Random rand = new Random();
-        int births = rand.nextInt(10);
-        if(births == 0 && ! freeLocations.isEmpty()) {
+        if(! freeLocations.isEmpty()) {
             Location loc = freeLocations.removeFirst();
             Predator young = new Michael(false, loc);
             moan.playSound();
             nextFieldState.placeCharacter(young, loc);
         }
     }
-    
+
     /**
      * Checks for any close by Michael Predators in the next field
      * state and returns the first one found, or null if none are 
@@ -199,7 +194,7 @@ public class Josh extends Predator
         Characters chara = null;
         Location newLocation = null;
         // Makes sure Josh doesn't overtake another Josh while 
-        // getting another character to kill and overtake.
+        // getting another Character to kill and overtake.
         while(index < occupiedSpots.size() && chara == null) {
             Characters temp = currentField.getCharacterAt(occupiedSpots.get(index));
             if(!(temp instanceof Josh) && temp != null && temp.isAlive()) {

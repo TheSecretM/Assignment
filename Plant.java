@@ -90,9 +90,8 @@ public class Plant extends Characters
     }
     
     /**
-     * This is what the prey does most of the time - it runs 
-     * around. Sometimes it will breed or die of old age. It 
-     * can eat wastes and get sick.
+     * This is what the Plant does most of the time - it 
+     * stays in place and breed.
      * @param currentField The field occupied.
      * @param nextFieldState The updated field.
      */
